@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block content %}
+    <div class="col-md-12" style="margin: 10px">
+        <h2 class="msg">Edit</h2>
+        <span class="uuid">Your unique ID - {{ uuid }}</span>
+        <form action="." method="post">{% csrf_token %}
+            {{ formset.management_form }}
+            {% for form in formset %}
+                <div class="entry">
+                    {% for field in form.visible_fields %}
+                        <div class="form-group">
+                            {{ field.label_tag }}
+
+                            {% render_field field class="form-control" %}
+                        </div>
+                    {% endfor %}
+                    <i class="fas fa-times" id="{{ forloop.counter|add:'-1' }}"></i>
+                </div>
+            {% endfor %}
+            <button type="Sumbit" value="Save" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+{% endblock content %}

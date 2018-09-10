@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col-lg-12" style="margin: 20px">
+    <h2>Hey, looks like you are new here</h2>
+    <a href="{% url 'edit' %}" class="btn btn-primary" style="display: inline-block">Create new list</a>
+    or <a href="#" class="btn btn-success" style="display: inline-block">Edit existing</a>
+</div>
+
+{% endblock content %}
