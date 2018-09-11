@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="col-lg-12" style="margin: 20px">
+<div class="col-lg-8">
     <h2>Hey, looks like you are new here</h2>
     <a href="{% url 'edit' %}" class="btn btn-primary" style="display: inline-block">Create new list</a>
-    or <a href="#" class="btn btn-success" style="display: inline-block" id="edit-btn">Edit existing</a>
+    or <a href="{% url 'import' %}" class="btn btn-success" style="display: inline-block">Edit existing</a>
 </div>
 
 {% endblock content %}

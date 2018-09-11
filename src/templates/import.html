@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block content %}
+    <div class="col-lg-8">
+        <p>Importing UUID will replace currently saved one.</p>
+        {% if uuid is not None %}
+            <span>Your current ID - {{ uuid }}</span>
+        {% endif %}
+        <form action="." method="post">
+            {% csrf_token %}
+            {% for field in form %}
+                {{ field.label_tag }}
+                {% render_field field class="form-control" %}
+            {% endfor %}
+            <input type="submit" class="btn btn-outline-primary" value="Submit">
+            <button type="button" class="btn btn-outline-info" id="new_uuid">Generate me a new one!</button>
+        </form>
+    </div>
+{% endblock %}

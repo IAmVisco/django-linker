@@ -13,3 +13,7 @@ class LinksForm(forms.ModelForm):
 
 
 LinksFormset = forms.formset_factory(LinksForm)
+
+
+class ImportForm(forms.Form):
+    uuid = forms.UUIDField(label='New UUID')

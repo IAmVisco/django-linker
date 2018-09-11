@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from core.views import index, edit, create, open_links
+from core.views import index, edit, create, open_links, import_settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,4 +23,5 @@ urlpatterns = [
     path('edit/', edit, name='edit'),
     path('create/', create, name='create'),
     path('<uuid:uuid>/', open_links, name='links'),
+    path('import/', import_settings, name='import'),
 ]

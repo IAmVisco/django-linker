@@ -4,8 +4,8 @@
 {% block content %}
     <div class="col-md-12" style="margin: 10px">
         <h2 class="msg">Edit</h2>
-        <span class="uuid">Your unique ID - {{ uuid }}</span>
-        <form action="." method="post">{% csrf_token %}
+        <span class="uuid">Your unique ID - {{ uuid }} <a href="{% url 'import' %}">Change</a></span>
+        <form action="." method="post" class="edit-form">{% csrf_token %}
             {{ formset.management_form }}
             <div id="forms">
                 {% for form in formset %}
