@@ -3,8 +3,18 @@
 {% block content %}
 <div class="col-lg-8">
     <h2>Hey, looks like you are new here</h2>
+    <p style="margin-bottom: 0">This site is just for leveling up Django skills and probably
+        won't be interesting to travelers who randomly opened this
+        page but I will try my best to explain what is going on here.
+        The idea was proposed by my good buddie Final and all what this site
+        does is just opening a bunch of specified links in one click.
+        On first launch site generates UUID for you and uses it later on.
+        If you want to have same UUID on for example phone and PC, use import
+        button right below.
+    </p>
+    <a href="https://github.com/IAmVisco/linker" target="_blank" class="git-link">GitHub repo</a>
     <a href="{% url 'edit' %}" class="btn btn-primary" style="display: inline-block">Create new list</a>
-    or <a href="{% url 'import' %}" class="btn btn-success" style="display: inline-block">Edit existing</a>
+    or <a href="{% url 'import' %}" class="btn btn-success" style="display: inline-block">Import existing</a>
 </div>
 
 {% endblock content %}

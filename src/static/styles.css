@@ -24,12 +24,21 @@
     margin-left: .5em;
 }
 
+.row {
+    margin-right: 0;
+}
+
 .col-lg-8 {
      margin: 20px;
 }
 
 #id_uuid {
     margin-bottom: 15px;
+}
+
+.git-link {
+     display: block;
+    margin-bottom: 10px;
 }
 
 @media screen and (max-width: 768px) {
