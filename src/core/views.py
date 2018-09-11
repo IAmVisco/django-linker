@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404, render_to_response
+from django.shortcuts import render, redirect, render_to_response
 from .models import Link
 from uuid import uuid4
 from .forms import LinksFormset
@@ -38,6 +38,7 @@ def edit(request):
             Link.objects.filter(owner=uuid).delete()
             for form in formset:
                 if form.cleaned_data.get('link') is not None:
+                    print(form.cleaned_data.get('link'))
                     Link(name=form.cleaned_data.get('name'),
                          link=form.cleaned_data.get('link'),
                          owner=uuid).save()

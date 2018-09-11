@@ -1,5 +1,7 @@
 $(document).ready(function() {
     $(".fa-times").click(function() {
-        console.log($(this).parent());
+        $(this).parent().css("display", "none");
+        $("#id_form-" + $(this).attr("id") + "-link").val("");
+        console.log($("#id_form-" + $(this).attr("id") + "-link").val());
     });
 });

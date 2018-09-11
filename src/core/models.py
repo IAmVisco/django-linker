@@ -7,4 +7,4 @@ class Link(models.Model):
     owner = models.UUIDField()
 
     def __str__(self):
-        return self.name
+        return self.link
