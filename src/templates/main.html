@@ -1,5 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="col-xs-8" style="margin: 20px 40px">
+        <p>You should see a lot of opened windows now and can close this window.
+        If this didn't happen check your browser settings and allow pop ups for this site.</p>
+        <p>You can edit your links anytime clicking this button</p>
+        <a href="{% url "edit" %}" class="btn btn-primary">Edit</a>
+    </div>
+
 <script type="text/javascript">
     {% for url in links_list %}
 		window.open('{{ url }}');
 	{% endfor %}
 </script>
+{% endblock %}

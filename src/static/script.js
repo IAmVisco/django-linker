@@ -1,10 +1,14 @@
 $(document).ready(function() {
     let total = $("#id_form-TOTAL_FORMS").val();
-    $(".fa-times").click(function() {
-        $(this).parent().remove();
-        // $("#id_form-" + $(this).attr("id") + "-link").val("");
-        $("#id_form-TOTAL_FORMS").val(--total);
-    });
+
+    function setRemove(){
+        $(".fa-times").click(function() {
+            $(this).parent().remove();
+            // $("#id_form-" + $(this).attr("id") + "-link").val("");
+            $("#id_form-TOTAL_FORMS").val(--total);
+        });
+    }
+    setRemove();
 
     $('#add_more').click(function() {
         total;
@@ -21,6 +25,8 @@ $(document).ready(function() {
             '</div>\n';
         $('#forms').append(form.replace(/__prefix__/g, total));
         $('#id_form-TOTAL_FORMS').val(++total);
+
+        setRemove();
     });
 
     $('#edit-btn').popover({title: "Not yet", content: "Will do soon", trigger: "hover"});

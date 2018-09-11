@@ -40,7 +40,6 @@ def edit(request):
             Link.objects.filter(owner=uuid).delete()
             for form in formset:
                 if form.cleaned_data.get('link') is not None:
-                    print('>>>>>>>LINK IS THIS', form.cleaned_data.get('link'))
                     Link(name=form.cleaned_data.get('name'),
                          link=form.cleaned_data.get('link'),
                          owner=uuid).save()
