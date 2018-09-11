@@ -22,5 +22,5 @@ urlpatterns = [
     path('', index, name='home'),
     path('edit/', edit, name='edit'),
     path('create/', create, name='create'),
-    path('<str:uuid>/', open_links),
+    path('<uuid:uuid>/', open_links, name='links'),
 ]

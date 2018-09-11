@@ -7,19 +7,22 @@
         <span class="uuid">Your unique ID - {{ uuid }}</span>
         <form action="." method="post">{% csrf_token %}
             {{ formset.management_form }}
-            {% for form in formset %}
-                <div class="entry">
-                    {% for field in form.visible_fields %}
-                        <div class="form-group">
-                            {{ field.label_tag }}
+            <div id="forms">
+                {% for form in formset %}
+                    <div class="entry">
+                        {% for field in form.visible_fields %}
+                            <div class="form-group">
+                                {{ field.label_tag }}
 
-                            {% render_field field class="form-control" %}
-                        </div>
-                    {% endfor %}
-                    <i class="fas fa-times" id="{{ forloop.counter|add:'-1' }}"></i>
-                </div>
-            {% endfor %}
-            <button type="sumbit" value="Save" class="btn btn-primary">Save</button>
+                                {% render_field field class="form-control" %}
+                            </div>
+                        {% endfor %}
+                        <i class="fas fa-times" id="{{ forloop.counter|add:'-1' }}"></i>
+                    </div>
+                {% endfor %}
+            </div>
+            <button type="button" class="btn btn-success" id="add_more"><i class="fas fa-plus"></i> Add more</button>
+            <input type="submit" value="Save" class="btn btn-primary">
         </form>
     </div>
 {% endblock content %}

@@ -20,6 +20,7 @@ def create(request):
         response.set_cookie('uuid', uuid, max_age=60 * 60 * 24 * 365)
         return response
     return redirect('edit')
+    # return render(request, 'create.html', {})
 
 
 def edit(request):
@@ -35,10 +36,11 @@ def edit(request):
     elif request.method == 'POST':
         formset = LinksFormset(request.POST)
         if formset.is_valid():
+            print('>>>>>>>VALID', formset)
             Link.objects.filter(owner=uuid).delete()
             for form in formset:
                 if form.cleaned_data.get('link') is not None:
-                    print(form.cleaned_data.get('link'))
+                    print('>>>>>>>LINK IS THIS', form.cleaned_data.get('link'))
                     Link(name=form.cleaned_data.get('name'),
                          link=form.cleaned_data.get('link'),
                          owner=uuid).save()
@@ -50,4 +52,4 @@ def edit(request):
 
 
 def open_links(request, uuid):
-    return render(request, 'main.html', {'links': Link.objects.filter(owner=uuid)})
+    return render(request, 'main.html', {'links_list': Link.objects.filter(owner=uuid)})
